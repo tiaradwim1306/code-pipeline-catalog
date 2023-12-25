@@ -28,7 +28,7 @@ phases:
     commands:
       - echo "Run unit testing and build docker image"
       - npm install
-      - npm run start
+      - npm run test
       - docker build -t $IMAGE_REPO:$IMAGE_TAG -f Dockerfile .
       - docker tag $IMAGE_REPO:$IMAGE_TAG $AWS_ACCOUNT_ID.dkr.ecr.$ECR_REGION.amazonaws.com/$IMAGE_REPO:$IMAGE_TAG
   post_build:
