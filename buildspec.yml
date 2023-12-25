@@ -6,8 +6,8 @@ env:
     ECR_REGION: "us-east-1"
     CONTAINER_NAME: lks-catalog-container
     IMAGE_REPO: lks-catalog-image
-    AWS_ACCESS_KEY: AKIA3VCW4P2RZUTJY6PK
-    AWS_SECRET_KEY: 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
+    AWS_ACCESS_KEYS: AKIA3VCW4P2RZUTJY6PK
+    AWS_SECRET_KEYS: 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
 
 phases:
   install:
@@ -17,8 +17,8 @@ phases:
   pre_build:
     commands:
       - echo "Install dependencies and login into ECR"
-      - aws configure set aws_access_key_id $AWS_ACCESS_KEY
-      - aws configure set aws_secret_access_key $AWS_SECRET_KEY
+      - aws configure set aws_access_key_id $AWS_ACCESS_KEYS
+      - aws configure set aws_secret_access_key $AWS_SECRET_KEYS
       - aws configure set region $ECR_REGION
       - aws ecr get-login-password --region $ECR_REGION | docker login --username AWS --password-stdin $AWS_ACCOUNT_ID.dkr.ecr.$ECR_REGION.amazonaws.com 
       - ECR_REPO-$AWS_ACCOUNT_ID.dkr.ecr.$ECR_REGION.amazonaws.com/$IMAGE_REPO
