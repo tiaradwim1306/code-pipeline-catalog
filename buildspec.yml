@@ -4,7 +4,7 @@ run as: root
 env:
   variables:
     ECR_REGION: "us-east-1"
-    CONTAINER_NAME: lks-catalog-container
+    CONTAINER_NAME: container
     IMAGE_REPO: lks-catalog-image
 
 phases:
