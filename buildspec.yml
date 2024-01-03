@@ -21,6 +21,8 @@ phases:
       - echo AWS_SECRET_KEY=${AWS_SECRET_KEY} >> .env.production
       - echo AWS_ACCESS_KEY=${AWS_ACCESS_KEY} >> .env.testing
       - echo AWS_SECRET_KEY=${AWS_SECRET_KEY} >> .env.testing
+      - cat .env.production
+      - cat .env.testing
   build:
     commands:
       - echo "Run unit testing and build docker image"
